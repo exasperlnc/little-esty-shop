@@ -33,5 +33,19 @@ RSpec.describe 'Merchant Items Show Page' do
 
       expect(current_path).to eq(edit_merchant_item_path(@merchant_2, @item_10))
     end
+    
+    it 'I see an image of the item' do
+      allow(Unsplash::Photo).to receive(:search).and_return([OpenStruct.new(urls: OpenStruct.new(small: 'https://example.com/image.jpg'))])
+
+      visit merchant_item_path(@merchant_1, @item_1)
+
+      expect(page).to have_css('.item-image')
+      expect(page).to have_xpath("//img[@src='https://example.com/image.jpg']")
+
+      visit merchant_item_path(@merchant_2, @item_10)
+
+      expect(page).to have_css('.item-image')
+      expect(page).to have_xpath("//img[@src='https://example.com/image.jpg']")
+    end
   end
 end

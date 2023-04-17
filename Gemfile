@@ -47,6 +47,7 @@ group :development, :test do
   gem 'net-http'
   gem 'faker'
   gem 'simplecov'
+  gem 'unsplash'
 end
 
 group :development do
