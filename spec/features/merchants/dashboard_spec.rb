@@ -4,6 +4,9 @@ RSpec.describe 'Merchant Dashboard Page' do
 
   before :each do
     test_data
+    @transaction_11 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_1)
+    @transaction_12 = Transaction.create!(credit_card_number: "1234146541543155", credit_card_expiration_date: "2025-01-11", result: 1, invoice: @invoice_1)
+    @transaction_13 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_2)
   end
   describe 'As a merchant, when I visit my merchant dashboard page' do
     it 'I see the name of the merchant' do
@@ -21,7 +24,7 @@ RSpec.describe 'Merchant Dashboard Page' do
 
     it 'I see the name of the top 5 customers who have conducted the largest number of successful transactions with my merchant' do
       visit merchant_dashboard_path(@merchant_1)
-      save_and_open_page
+      
       expect(page).to have_content(@customer_1.first_name)
       expect(page).to have_content(@customer_2.first_name)
       expect(page).to have_content(@customer_4.first_name)

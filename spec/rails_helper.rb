@@ -69,9 +69,6 @@ def test_data
   @transaction_8 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_8)
   @transaction_9 = Transaction.create!(credit_card_number: "1234146541543155", credit_card_expiration_date: "2025-01-11", result: 0, invoice: @invoice_9)
   @transaction_10 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_10)
-  @transaction_11 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_1)
-  @transaction_12 = Transaction.create!(credit_card_number: "1234146541543155", credit_card_expiration_date: "2025-01-11", result: 1, invoice: @invoice_1)
-  @transaction_13 = Transaction.create!(credit_card_number: "1234567890123456", credit_card_expiration_date: "2025-01-01", result: 1, invoice: @invoice_2)
 end
 
 
