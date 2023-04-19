@@ -40,4 +40,10 @@ class Item < ApplicationRecord
       .first
       .strftime("%A, %B %d, %Y")
   end
+  
+  def items_invoice_id
+    self.invoice_items
+    .where(invoice_items: {status: 0})
+    .pluck(:invoice_id)
+  end
 end

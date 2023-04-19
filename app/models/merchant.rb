@@ -46,6 +46,13 @@ class Merchant < ApplicationRecord
     .created_at
     .strftime("%A, %B %d, %Y")
   end
+
+  def items_ready_to_ship
+    self.items
+    .joins(:invoice_items)
+    .where(invoice_items: {status: 0})
+    .distinct
+  end
 end
 
 def update

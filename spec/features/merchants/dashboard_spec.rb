@@ -37,5 +37,17 @@ RSpec.describe 'Merchant Dashboard Page' do
       expect(page).to have_content("Number of Transactions: 2")
       expect(page).to have_content("Number of Transactions: 1")
     end
+
+    it 'I see a list of Items ready to ship' do
+      visit merchant_dashboard_path(@merchant_1)
+      
+      expect(page).to have_content(@item_1.name)
+    end
+
+    it 'I see the Items invoice id"s next to each Item name' do
+      visit merchant_dashboard_path(@merchant_1)
+
+      expect(page).to have_content(@invoice_1.id)
+    end
   end
 end
