@@ -1,7 +1,5 @@
 class Admin::MerchantsController < ApplicationController
   def index
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
     @merchants = Merchant.all
     @images = @image_search.images("street corner")
     @merchants_enabled = Merchant.where(status: 'enabled')
@@ -9,14 +7,12 @@ class Admin::MerchantsController < ApplicationController
   end
 
   def show
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
     @merchant = Merchant.find(params[:id])
   end
 
   def edit
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
+    # @image_search = ImageSearch.new
+    # @logo = @image_search.images("Big Pharma")
     @merchant = Merchant.find(params[:id])
   end
 
