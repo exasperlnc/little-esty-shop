@@ -76,6 +76,12 @@ RSpec.describe 'Admin Merchants Index Page' do
     end
 
     it 'visits index and enables merchant' do
+      @merchant_1.enabled!
+      @merchant_2.enabled!
+      @merchant_3.enabled!
+      @merchant_4.enabled!
+      @merchant_5.enabled!
+      
       visit admin_merchants_path
 
       click_button 'Enable'
@@ -85,11 +91,10 @@ RSpec.describe 'Admin Merchants Index Page' do
     end
 
     it 'visits index and disables merchant' do
-      @merchant_2.disabled!
-      @merchant_3.disabled!
-      @merchant_4.disabled!
-      @merchant_5.disabled!
+      @merchant_1.enabled!
+
       visit admin_merchants_path
+
       expect(current_path).to eq('/admin/merchants')
 
       click_button 'Disable'

@@ -55,7 +55,7 @@ RSpec.describe Merchant, type: :model do
 
     describe '#top_selling_date' do
       it 'returns the top selling date' do
-        expect(@merchant_1.top_selling_date).to eq("Wednesday, April 19, 2023") 
+        expect(@merchant_1.top_selling_date).to eq(Date.today.strftime("%A, %B %d, %Y")) 
       end
     end
   end

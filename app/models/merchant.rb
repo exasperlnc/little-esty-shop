@@ -8,7 +8,7 @@ class Merchant < ApplicationRecord
   validates_presence_of :name
 
 
-  enum status: [:enabled, :disabled]
+  enum status: [:disabled, :enabled]
 
   def enabled!
     update(status: :enabled)
