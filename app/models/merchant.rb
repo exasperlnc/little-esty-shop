@@ -40,7 +40,8 @@ class Merchant < ApplicationRecord
     .select("invoices.created_at, invoices.id, sum(invoice_items.unit_price * invoice_items.quantity) AS total_revenue")
     .joins(:transactions, :invoice_items)
     .where(transactions: {result: :success})
-    .group(:id).order("total_revenue DESC")
+    .group(:id)
+    .order("total_revenue DESC")
     .limit(1)
     .first
     .created_at
@@ -53,16 +54,4 @@ class Merchant < ApplicationRecord
     .order("created_at DESC")
   end
 end
-
-def update
-  @merchant = Merchant.find(params[:id])
-  if @merchant.update(merchant_params)
-    flash[:success] = "Merchant Updated"
-    redirect_to admin_merchant_path(@merchant)
-  else
-    flash[:notice] = "Merchant Update Failed"
-    redirect_to edit_admin_merchant_path(@merchant)
-  end
-end
-
 

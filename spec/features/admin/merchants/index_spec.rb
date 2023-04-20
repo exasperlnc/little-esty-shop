@@ -64,7 +64,7 @@ RSpec.describe 'Admin Merchants Index Page' do
 
   
     it 'I see the total revenue generated next to each merchant name' do
-
+      
       within "#top_merchant_#{@merchant_2.id}" do
         expect(page).to have_content(@merchant_2.name)
         expect(page).to have_content("$15,307,520.00")
@@ -97,7 +97,7 @@ RSpec.describe 'Admin Merchants Index Page' do
 
       
       expect(current_path).to eq(admin_merchants_path)
-      expect(page).to have_content("Merchant disable")
+      expect(page).to have_content("Merchant Disabled")
     end
 
     it 'has section for enabled merchants' do

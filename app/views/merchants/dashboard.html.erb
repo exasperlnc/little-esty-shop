@@ -9,3 +9,5 @@
 <% @items_ready_to_ship.each do |invoice_item| %>
   <p><%= invoice_item.item.name %> Ordered at: <%= invoice_item.created_at %> Item's Invoice Id: <%= link_to invoice_item.id, merchant_invoices_path(@merchant) %>
 <% end %>
+<%= render 'shared/nav_bar_merchant' %>
+

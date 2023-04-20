@@ -1,15 +1,17 @@
-<h3>Admin Dashboard</h3>
+<%= render 'shared/nav_bar_admin' %>
+<%= render 'shared/two_columns' %>
 
-<%= link_to "Merchants", admin_merchants_path %>
-<%= link_to "Invoices", admin_invoices_path %>
-<div id="Top_customers">
-Top 5 Customers: <% @top_customers.each do |customer| %>
-  <%="#{customer.first_name} #{customer.last_name}'s Transactions: #{customer.transaction_count}" %> <br>
-<% end %></div> <br>
-
-<div id="Incomplete_invoices">
-Incomplete Invoices: <br
-> <% @incomplete_invoices.each do |invoice| %>
-    <%=invoice.id%> 
-    Created: <%=invoice.created_at_formatted%> <br>
-  <% end %></div>
+<div id="left-column" class="column">
+  <div id="Top_customers">
+  Top 5 Customers: <% @top_customers.each do |customer| %>
+    <%="#{customer.first_name} #{customer.last_name}'s Transactions: #{customer.transaction_count}" %> <br>
+  <% end %></div> <br>
+</div>
+<div id="left-column" class="column">
+  <div id="Incomplete_invoices">
+  Incomplete Invoices: <br
+  > <% @incomplete_invoices.each do |invoice| %>
+      <%=invoice.id%> 
+      Created: <%=invoice.created_at_formatted%> <br>
+    <% end %></div>
+</div>
