@@ -6,8 +6,6 @@
   <p><%= customer.first_name %> <%= customer.last_name %> Number of Transactions: <%= customer.transactions.count %></p>
 <% end %>
 <p> Items ready to ship:</p>
-<% @items_ready_to_ship.each do |item| %>
-  <p><%= item.name %> Item's Invoice Id's: <% item.items_invoice_id.each do |invoice_id| %>
-    <%= link_to invoice_id, merchant_invoice_path(@merchant, invoice_id) %>
-  <% end %></p>
+<% @items_ready_to_ship.each do |invoice_item| %>
+  <p><%= invoice_item.item.name %> Ordered at: <%= invoice_item.created_at %> Item's Invoice Id: <%= link_to invoice_item.id, merchant_invoices_path(@merchant) %>
 <% end %>

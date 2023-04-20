@@ -77,10 +77,6 @@ RSpec.describe Item, type: :model do
       expect(@item_12.top_selling_date).to_not eq(@invoice_12.created_at.strftime("%A, %B %d, %Y"))
       
     end
-
-    it '#items_invoice_id' do
-      expect(@item_1.items_invoice_id).to eq([@invoice_1.id])
-    end
   end
 
   describe 'class methods' do

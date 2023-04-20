@@ -48,10 +48,9 @@ class Merchant < ApplicationRecord
   end
 
   def items_ready_to_ship
-    self.items
-    .joins(:invoice_items)
+    self.invoice_items
     .where(invoice_items: {status: 0})
-    .distinct
+    .order("created_at DESC")
   end
 end
 
