@@ -47,5 +47,11 @@ class Merchant < ApplicationRecord
     .created_at
     .strftime("%A, %B %d, %Y")
   end
+
+  def items_ready_to_ship
+    self.invoice_items
+    .where(invoice_items: {status: 0})
+    .order("created_at DESC")
+  end
 end
 
