@@ -1,0 +1,9 @@
+<%= render 'shared/nav_bar_admin' %>
+
+<%= render '/shared/flash_messages' %>
+
+<%= form_with url: new_admin_merchant_path, method: :post, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create Merchant" %>
+<% end %>
