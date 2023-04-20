@@ -111,5 +111,19 @@ RSpec.describe 'Admin Merchants Index Page' do
 
       expect(page).to have_content("Disabled Merchants")
     end
+
+    it 'has a link to create a new merchant' do
+      visit admin_merchants_path
+      
+      expect(page).to have_content("Create New Merchant")
+    end
+
+    it 'clicks link to create new merchant' do
+      visit admin_merchants_path
+      
+      click_link "Create New Merchant"
+
+      expect(current_path).to eq(new_admin_merchant_path)
+    end
   end
 end

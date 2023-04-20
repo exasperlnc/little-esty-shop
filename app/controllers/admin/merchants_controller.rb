@@ -8,6 +8,13 @@ class Admin::MerchantsController < ApplicationController
     @merchants_disabled = Merchant.where(status: 'disabled')
   end
 
+  def new
+    
+  end
+
+  def create
+    
+  end
   def show
     @image_search = ImageSearch.new
     @logo = @image_search.images("Big Pharma")
@@ -49,6 +56,6 @@ class Admin::MerchantsController < ApplicationController
 
   private
   def merchant_params
-    params.permit(:name, :status, :update_form)
+    params.permit(:name, :status)
   end
 end
