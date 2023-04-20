@@ -1,22 +1,16 @@
 class Merchants::ItemsController < ApplicationController
   def index
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
     @merchant = Merchant.find(params[:merchant_id])
     @items = @merchant.items
   end
 
   def show
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
     @merchant = Merchant.find(params[:merchant_id])
     @item = Item.find(params[:id])
     @images = @image_search.images(@item.name)
   end
 
   def edit
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
     @merchant = Merchant.find(params[:merchant_id])
     @item = Item.find(params[:id])
   end
@@ -39,8 +33,6 @@ class Merchants::ItemsController < ApplicationController
   def new
     @merchant = Merchant.find(params[:merchant_id])
     @item = Item.new
-    @image_search = ImageSearch.new
-    @logo = @image_search.images("Big Pharma")
   end
 
   def create
