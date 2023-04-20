@@ -59,10 +59,8 @@ RSpec.describe "admin/invoices#show" do
   it 'lists Total Invoice Revenue' do
     visit admin_invoice_path(@invoice_1)
     
-    #probably a within here
     expect(page).to have_content("Quantity: #{@invoice_item_1.quantity}")
     expect(page).to have_content("Quantity: #{@invoice_item_20.quantity}")
-    save_and_open_page
   end
 
   it 'shows price sold for' do
