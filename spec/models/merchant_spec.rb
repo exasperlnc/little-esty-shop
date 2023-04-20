@@ -58,5 +58,11 @@ RSpec.describe Merchant, type: :model do
         expect(@merchant_1.top_selling_date).to eq(Date.today.strftime("%A, %B %d, %Y")) 
       end
     end
+
+    describe '#items_ready_to_ship' do
+      it 'returns items ready to ship' do
+        expect(@merchant_1.items_ready_to_ship).to eq([@invoice_item_1])
+      end
+    end
   end
 end
