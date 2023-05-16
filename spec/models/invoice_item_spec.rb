@@ -24,7 +24,7 @@ RSpec.describe InvoiceItem, type: :model do
     describe 'item_name' do
       it 'returns the name of the item
         associated with the invoice_item' do
-        expect(@invoice_item_19.item_name).to eq("Shrooms")
+        expect(@invoice_item_19.item_name).to eq("Tortilla")
       end
     end
   end
